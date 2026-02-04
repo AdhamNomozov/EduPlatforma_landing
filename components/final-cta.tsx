@@ -1,53 +1,74 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Send, Phone, Shield, Clock, Users } from "lucide-react"
 
 export function FinalCTA() {
   return (
-    <section className="py-32 relative overflow-hidden bg-blue-600">
-      <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]" />
+    <section className="py-24 relative overflow-hidden bg-[#0052FF]">
+      {/* Orqa fondagi zamonaviy gradient va effektlar */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-400 rounded-full blur-[120px] opacity-20" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-800 rounded-full blur-[120px] opacity-40" />
+      </div>
 
-      <div className="container mx-auto px-8 max-w-7xl relative">
-        <div className="max-w-3xl mx-auto text-center text-white">
-          <h2
-            className="text-[56px] font-bold tracking-tight mb-6 text-white leading-tight"
-            style={{ letterSpacing: "-0.02em" }}
-          >
-            Bugun boshlaymizmi?
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight leading-[1.1]">
+            Ta'lim markazingizni <br /> 
+            <span className="text-blue-200">yangi bosqichga</span> olib chiqing
           </h2>
 
-          <p className="text-[22px] mb-12 text-white/90">Bepul konsultatsiya va demo olish uchun</p>
+          <p className="text-lg md:text-xl text-blue-50/80 mb-12 max-w-2xl mx-auto">
+            Bepul konsultatsiya va demo-tur olish uchun hoziroq bog'laning. Bizning mutaxassislar sizga yordam berishga tayyor.
+          </p>
 
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            {/* Telegram Button - Endi ishlaydi! */}
             <Button
               size="lg"
-              className="gap-2 text-lg h-[60px] px-10 bg-white text-blue-600 hover:bg-gray-50 hover:scale-105 hover:shadow-[0_12px_40px_rgba(0,0,0,0.2)] transition-all rounded-xl"
+              asChild
+              className="w-full sm:w-auto gap-3 h-14 px-10 bg-white text-[#0052FF] hover:bg-blue-50 hover:scale-105 active:scale-95 transition-all duration-300 rounded-2xl font-bold shadow-xl shadow-blue-900/20"
             >
-              <Send className="w-6 h-6" />
-              @eduplatforma_bot ga yozing
+              <a href="https://t.me/eduplatforma_bot" target="_blank" rel="noopener noreferrer">
+                <Send className="w-5 h-5 fill-current" />
+                @eduplatforma_bot ga yozing
+              </a>
             </Button>
 
+            {/* Phone Button */}
             <Button
               size="lg"
               variant="outline"
-              className="gap-2 text-lg h-[60px] px-10 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-xl"
+              asChild
+              className="w-full sm:w-auto gap-3 h-14 px-10 border-2 border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-md rounded-2xl font-bold transition-all duration-300"
             >
-              <Phone className="w-6 h-6" />
-              +998 99 746 22 00
+              <a href="tel:+998997462200">
+                <Phone className="w-5 h-5" />
+                +998 99 746 22 00
+              </a>
             </Button>
           </div>
 
-          <div className="flex items-center justify-center gap-6 text-sm text-white/70">
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4" />
-              <span>Xavfsiz</span>
+          {/* Ishonch ko'rsatkichlari */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-white/10 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-3 text-white/80">
+              <div className="p-2 bg-white/10 rounded-lg">
+                <Shield className="w-5 h-5 text-blue-200" />
+              </div>
+              <span className="text-sm font-medium">Xavfsiz tizim</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              <span>Tez javob</span>
+            <div className="flex items-center justify-center gap-3 text-white/80">
+              <div className="p-2 bg-white/10 rounded-lg">
+                <Clock className="w-5 h-5 text-blue-200" />
+              </div>
+              <span className="text-sm font-medium">24/7 Qo'llab-quvvatlash</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Users className="w-4 h-4" />
-              <span>35+ mijoz</span>
+            <div className="flex items-center justify-center gap-3 text-white/80">
+              <div className="p-2 bg-white/10 rounded-lg">
+                <Users className="w-5 h-5 text-blue-200" />
+              </div>
+              <span className="text-sm font-medium">35+ Markazlar ishonchi</span>
             </div>
           </div>
         </div>
