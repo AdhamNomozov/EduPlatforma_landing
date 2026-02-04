@@ -1,7 +1,16 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MessageSquare, FileCheck, Settings, Rocket, Clock, CheckCircle, Sparkles } from "lucide-react"
+import { 
+  MessageSquare, 
+  FileCheck, 
+  Settings, 
+  Rocket, 
+  Clock, 
+  CheckCircle, 
+  Sparkles,
+  Users as UsersIcon // MUAMMO SHU YERDA EDI - ENDI IMPORT QILINDI
+} from "lucide-react"
 
 export function Process() {
   const steps = [
@@ -38,7 +47,6 @@ export function Process() {
 
   return (
     <section id="jarayon" className="py-32 relative overflow-hidden bg-transparent">
-      {/* Background Decorative - Section'ga chuqurlik beradi */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/30 rounded-full blur-[120px] -z-10" />
       
       <div className="container mx-auto px-6 max-w-7xl">
@@ -58,7 +66,7 @@ export function Process() {
         </div>
 
         <div className="relative max-w-6xl mx-auto">
-          {/* Animated Progress Line (Desktop) */}
+          {/* Animated Progress Line */}
           <div className="hidden md:block absolute top-[52px] left-[10%] right-[10%] h-[2px] bg-slate-200 -z-0">
             <motion.div 
               initial={{ width: 0 }}
@@ -79,7 +87,6 @@ export function Process() {
                 transition={{ delay: index * 0.2 }}
                 className="flex flex-col items-center text-center group"
               >
-                {/* Step Circle */}
                 <div className={`
                   w-[104px] h-[104px] rounded-[32px] flex items-center justify-center mb-8
                   transition-all duration-500 relative
@@ -88,8 +95,6 @@ export function Process() {
                     : "bg-white text-slate-400 border border-slate-100 shadow-xl shadow-slate-200/50 group-hover:border-blue-200 group-hover:text-blue-500"}
                 `}>
                   <step.icon className={`w-10 h-10 ${step.highlight ? "animate-bounce" : ""}`} />
-                  
-                  {/* Step Number Badge */}
                   <div className={`
                     absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs border-2 border-white shadow-lg
                     ${step.highlight ? "bg-slate-900 text-white" : "bg-white text-slate-900"}
@@ -136,7 +141,8 @@ export function Process() {
                 <div className="flex -space-x-3">
                   {[1,2,3,4].map((i) => (
                     <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold">
-                      {i === 4 ? "+35" : <Users className="w-4 h-4 text-slate-400" />}
+                      {/* Users o'rniga UsersIcon ishlatildi */}
+                      {i === 4 ? "+35" : <UsersIcon className="w-4 h-4 text-slate-400" />}
                     </div>
                   ))}
                 </div>
