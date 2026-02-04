@@ -1,6 +1,7 @@
 "use client"
 
-import { GraduationCap, Building2, School, Building, ArrowRight } from "lucide-react"
+import { motion } from "framer-motion"
+import { GraduationCap, Building2, School, Building, ArrowRight, Sparkles } from "lucide-react"
 
 export function TargetSegments() {
   const scrollToPricing = (tierId: string) => {
@@ -10,8 +11,7 @@ export function TargetSegments() {
         behavior: "smooth",
         block: "start",
       })
-
-      // Highlight target tier for 2 seconds
+      
       element.classList.add("highlight-glow")
       setTimeout(() => {
         element.classList.remove("highlight-glow")
@@ -22,92 +22,109 @@ export function TargetSegments() {
   const segments = [
     {
       icon: GraduationCap,
-      title: "Repititorlar, kichik o'quv markazlar",
-      description: "Onlayn kurslar va repetitorlar uchun",
+      title: "Repetitorlar & Markazlar",
       students: "50-200 o'quvchi",
-      iconGradient: "from-blue-500 to-blue-600",
-      iconBg: "bg-gradient-to-br from-blue-500 to-blue-400",
-      pricingId: "pricing-basic", // Links to pricing tier
+      desc: "Onlayn kurslar va kichik jamoalar uchun moslashuvchan yechim.",
+      color: "blue",
+      pricingId: "pricing-basic",
     },
     {
       icon: Building2,
-      title: "O'quv markazlari",
-      description: "Til va kasbiy o'qitish",
+      title: "O'quv Markazlari",
       students: "200-500 o'quvchi",
-      iconGradient: "from-orange-500 to-orange-600",
-      iconBg: "bg-gradient-to-br from-orange-500 to-orange-400",
+      desc: "Til markazlari va kasbiy ta'lim muassasalari uchun professional boshqaruv.",
+      color: "orange",
       featured: true,
-      pricingId: "pricing-professional", // Links to pricing tier
+      pricingId: "pricing-professional",
     },
     {
       icon: School,
-      title: "Xususiy maktab va texnikumlar",
-      description: "Umumiy ta'lim maktablari",
+      title: "Maktab & Litseylar",
       students: "500-2000 o'quvchi",
-      iconGradient: "from-green-500 to-green-600",
-      iconBg: "bg-gradient-to-br from-green-500 to-green-400",
-      pricingId: "pricing-premium", // Links to pricing tier
+      desc: "Umumiy ta'lim va xususiy maktablar uchun to'liq raqamli ekotizim.",
+      color: "emerald",
+      pricingId: "pricing-premium",
     },
     {
       icon: Building,
-      title: "Universitet va yirik tashkilotlar",
-      description: "Yirik tashkilotlar va holding kompaniyalar",
+      title: "Universitet & Holding",
       students: "3000+ o'quvchi",
-      iconGradient: "from-purple-500 to-purple-600",
-      iconBg: "bg-gradient-to-br from-purple-500 to-purple-400",
-      pricingId: "pricing-enterprise", // Links to pricing tier
+      desc: "Yirik tashkilotlar uchun maxsus integratsiyalar va yuqori quvvatli serverlar.",
+      color: "purple",
+      pricingId: "pricing-enterprise",
     },
   ]
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-8 max-w-7xl">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl font-bold text-gray-900 tracking-tight">Kimlar uchun mos?</h2>
-          <p className="text-lg text-gray-600">Har xil ta'lim muassasalari uchun</p>
+    <section className="py-32 relative overflow-hidden bg-transparent">
+      {/* Visual background element */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 opacity-30">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-blue-100 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-sm font-bold mb-6"
+          >
+            <Sparkles className="w-4 h-4 text-amber-500" />
+            <span>Sizga mos keladigan segmentni tanlang</span>
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+            Kimlar uchun mos?
+          </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {segments.map((segment, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`bg-white border rounded-2xl p-8 hover:shadow-xl transition-all duration-250 relative ${
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={`relative flex flex-col p-8 rounded-[40px] bg-white border transition-all duration-500 group overflow-hidden ${
                 segment.featured
-                  ? "border-2 border-orange-500 scale-105 shadow-[0_12px_40px_rgba(249,115,22,0.15)] z-10"
-                  : "border-gray-200 hover:-translate-y-1.5"
+                  ? "border-orange-200 shadow-2xl shadow-orange-100 scale-105 z-10"
+                  : "border-slate-100 shadow-xl shadow-slate-200/50 hover:border-blue-200 hover:-translate-y-2"
               }`}
             >
               {segment.featured && (
-                <div
-                  className="absolute -top-0 -right-0 bg-orange-500 text-white px-3 py-1 text-[11px] font-bold uppercase tracking-wider shadow-lg"
-                  style={{
-                    borderRadius: "0 16px 0 6px",
-                  }}
-                >
-                  ENG MASHHUR
+                <div className="absolute top-6 right-6">
+                  <span className="bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg animate-pulse">
+                    Mashhur
+                  </span>
                 </div>
               )}
 
-              <div className="mb-6">
-                <div className={`w-20 h-20 ${segment.iconBg} rounded-2xl flex items-center justify-center shadow-lg`}>
-                  <segment.icon className="w-10 h-10 text-white" />
-                </div>
+              <div className={`w-16 h-16 rounded-[20px] flex items-center justify-center mb-8 transition-transform duration-500 group-hover:rotate-6 shadow-lg ${
+                segment.featured ? "bg-orange-500 text-white" : "bg-slate-50 text-slate-600 group-hover:bg-blue-600 group-hover:text-white"
+              }`}>
+                <segment.icon className="w-8 h-8" />
               </div>
 
-              <h3 className="text-[22px] font-bold text-gray-900 mb-2">{segment.title}</h3>
-              <p className="text-sm font-semibold text-gray-700 mb-1">{segment.students}</p>
-              <p className="text-sm text-gray-600 mb-6">{segment.description}</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">{segment.title}</h3>
+              <p className="text-blue-600 font-bold text-sm mb-4">{segment.students}</p>
+              <p className="text-slate-500 text-sm leading-relaxed mb-8 font-medium">
+                {segment.desc}
+              </p>
 
-              <div className="border-t border-gray-200 mb-6" />
+              <div className="mt-auto pt-6 border-t border-slate-50">
+                <button
+                  onClick={() => scrollToPricing(segment.pricingId)}
+                  className="flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors group/btn"
+                >
+                  Narxlarni ko'rish
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                </button>
+              </div>
 
-              <button
-                onClick={() => scrollToPricing(segment.pricingId)}
-                className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1 group transition-colors"
-              >
-                Narxlarni ko'rish
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-            </div>
+              {/* Backglow on hover */}
+              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-slate-50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            </motion.div>
           ))}
         </div>
       </div>
