@@ -1,13 +1,14 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Send, Phone, Shield, Clock, Users } from "lucide-react"
+// Ikonkani alias bilan import qilamiz (Users -> UsersIcon)
+import { Send, Phone, Shield, Clock, Users as UsersIcon } from "lucide-react"
 
 export function FinalCTA() {
   return (
     <section className="py-24 relative overflow-hidden bg-[#0052FF]">
       {/* Orqa fondagi zamonaviy gradient va effektlar */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-400 rounded-full blur-[120px] opacity-20" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-800 rounded-full blur-[120px] opacity-40" />
       </div>
@@ -24,7 +25,6 @@ export function FinalCTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            {/* Telegram Button - Endi ishlaydi! */}
             <Button
               size="lg"
               asChild
@@ -36,7 +36,6 @@ export function FinalCTA() {
               </a>
             </Button>
 
-            {/* Phone Button */}
             <Button
               size="lg"
               variant="outline"
@@ -66,7 +65,8 @@ export function FinalCTA() {
             </div>
             <div className="flex items-center justify-center gap-3 text-white/80">
               <div className="p-2 bg-white/10 rounded-lg">
-                <Users className="w-5 h-5 text-blue-200" />
+                {/* Bu yerda Users o'rniga UsersIcon ishlatildi */}
+                <UsersIcon className="w-5 h-5 text-blue-200" />
               </div>
               <span className="text-sm font-medium">35+ Markazlar ishonchi</span>
             </div>
