@@ -1,4 +1,8 @@
-import { Award, Users, Headphones, TrendingUp } from "lucide-react"
+"use client"
+
+import { motion } from "framer-motion"
+// Users ikonkasini UsersIcon nomi bilan import qilamiz
+import { Award, Users as UsersIcon, Headphones, TrendingUp, Sparkles } from "lucide-react"
 
 export function WhyUs() {
   const reasons = [
@@ -6,70 +10,83 @@ export function WhyUs() {
       icon: Award,
       number: "6+",
       title: "yillik tajriba",
-      description: "O'zbekiston bozorida professional xizmat",
-      gradient: "from-blue-500 to-blue-600",
-      shadowColor: "shadow-blue-500/20",
-      iconSize: 48,
+      description: "O'zbekiston bozorida professional xizmat ko'rsatish",
+      gradient: "from-blue-500 to-blue-700",
     },
     {
-      icon: Users,
+      icon: UsersIcon, // Endi xatolik bermaydi
       number: "35+",
       title: "mamnun mijoz",
       description: "Butun O'zbekiston bo'ylab ishonchli hamkorlik",
-      gradient: "from-green-500 to-green-600",
-      shadowColor: "shadow-green-500/20",
-      iconSize: 48,
+      gradient: "from-indigo-500 to-indigo-700",
     },
     {
       icon: Headphones,
       number: "24/7",
       title: "qo'llab-quvvatlash",
-      description: "O'zbek tilida tez va sifatli yordam",
-      gradient: "from-purple-500 to-purple-600",
-      shadowColor: "shadow-purple-500/20",
-      iconSize: 48,
+      description: "O'zbek tilida tezkor va sifatli texnik yordam",
+      gradient: "from-blue-600 to-indigo-600",
     },
     {
       icon: TrendingUp,
       number: "∞",
       title: "doimiy yangilanish",
-      description: "Eng so'nggi texnologiyalar va funksiyalar",
-      gradient: "from-orange-500 to-orange-600",
-      shadowColor: "shadow-orange-500/20",
-      iconSize: 48,
+      description: "Eng so'nggi texnologiyalar va yangi funksiyalar",
+      gradient: "from-slate-700 to-slate-900",
     },
   ]
 
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="container mx-auto px-8 max-w-7xl">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl font-bold text-gray-900 tracking-tight">Nega bizni tanlaysizlar?</h2>
-          <p className="text-lg text-gray-600">O'zbekistondagi yetakchi LMS platforma joriy qilish xizmati</p>
+    <section className="py-32 relative overflow-hidden bg-transparent">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="text-center mb-20 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-bold mb-4"
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>Nega aynan biz?</span>
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+            Muvaffaqiyatli LMS tajribasi
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`bg-white border border-gray-200 rounded-2xl p-6 hover:scale-103 hover:${reason.shadowColor} hover:shadow-xl transition-all duration-300 flex gap-4`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative p-8 rounded-[32px] bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-2"
             >
-              <div
-                className={`w-[70px] h-[70px] bg-gradient-to-br ${reason.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}
-              >
+              {/* Icon */}
+              <div className={`w-16 h-16 bg-gradient-to-br ${reason.gradient} rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform duration-500`}>
                 <reason.icon className="w-8 h-8 text-white" />
               </div>
 
-              <div className="flex-1">
-                <div
-                  className={`text-[48px] font-extrabold leading-none mb-1 bg-gradient-to-br ${reason.gradient} bg-clip-text text-transparent`}
-                >
-                  {reason.number}
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{reason.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed max-w-[200px]">{reason.description}</p>
+              {/* Number */}
+              <div className={`text-5xl font-black mb-4 bg-gradient-to-br ${reason.gradient} bg-clip-text text-transparent`}>
+                {reason.number}
               </div>
-            </div>
+
+              <h3 className="text-xl font-bold text-slate-900 mb-3 capitalize">
+                {reason.title}
+              </h3>
+              
+              <p className="text-slate-500 text-sm leading-relaxed">
+                {reason.description}
+              </p>
+
+              {/* Decorative element */}
+              <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                <reason.icon className="w-16 h-16" />
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
