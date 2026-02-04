@@ -32,7 +32,7 @@ export function FinalCTA() {
               className="gap-2 text-lg h-[60px] px-10 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-xl"
             >
               <Phone className="w-6 h-6" />
-              +998 90 123 45 67
+              +998 99 746 22 00
             </Button>
           </div>
 
@@ -47,7 +47,7 @@ export function FinalCTA() {
             </div>
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4" />
-              <span>100+ mijoz</span>
+              <span>35+ mijoz</span>
             </div>
           </div>
         </div>
