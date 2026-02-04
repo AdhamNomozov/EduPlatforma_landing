@@ -2,10 +2,27 @@
 
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Server-side rendering vaqtida Telegram xatosi bermasligi uchun 
+  // useEffect ichida tekshirish eng xavfsiz yo'l
+  useEffect(() => {
+    // Agar loyihangizda window.Telegram ishlatilsa, u faqat brauzerda ishlaydi
+    if (typeof window !== "undefined" && (window as any).Telegram?.WebApp) {
+      const tg = (window as any).Telegram.WebApp;
+      tg.ready();
+    }
+  }, []);
+
+  const navLinks = [
+    { href: "#xususiyatlar", label: "Xususiyatlar" },
+    { href: "#narxlar", label: "Narxlar" },
+    { href: "#jarayon", label: "Jarayon" },
+    { href: "#faq", label: "FAQ" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 glass border-b">
@@ -19,18 +36,15 @@ export function Header() {
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#xususiyatlar" className="text-sm font-medium hover:text-primary transition-colors">
-              Xususiyatlar
-            </a>
-            <a href="#narxlar" className="text-sm font-medium hover:text-primary transition-colors">
-              Narxlar
-            </a>
-            <a href="#jarayon" className="text-sm font-medium hover:text-primary transition-colors">
-              Jarayon
-            </a>
-            <a href="#faq" className="text-sm font-medium hover:text-primary transition-colors">
-              FAQ
-            </a>
+            {navLinks.map((link) => (
+              <a 
+                key={link.href}
+                href={link.href} 
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
@@ -46,21 +60,20 @@ export function Header() {
           </button>
         </div>
 
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-4">
-            <a href="#xususiyatlar" className="block text-sm font-medium hover:text-primary transition-colors">
-              Xususiyatlar
-            </a>
-            <a href="#narxlar" className="block text-sm font-medium hover:text-primary transition-colors">
-              Narxlar
-            </a>
-            <a href="#jarayon" className="block text-sm font-medium hover:text-primary transition-colors">
-              Jarayon
-            </a>
-            <a href="#faq" className="block text-sm font-medium hover:text-primary transition-colors">
-              FAQ
-            </a>
-            <div className="flex flex-col gap-2 pt-4">
+          <div className="md:hidden py-4 space-y-4 animate-in slide-in-from-top-2">
+            {navLinks.map((link) => (
+              <a 
+                key={link.href}
+                href={link.href} 
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-sm font-medium hover:text-primary transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="flex flex-col gap-2 pt-4 border-t">
               <Button size="sm" className="bg-primary hover:bg-primary/90 w-full" asChild>
                 <a href="https://t.me/eduplatforma_bot" target="_blank" rel="noopener noreferrer">
                   Bepul maslahat
