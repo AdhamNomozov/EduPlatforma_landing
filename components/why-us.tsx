@@ -4,7 +4,7 @@ export function WhyUs() {
   const reasons = [
     {
       icon: Award,
-      number: "5+",
+      number: "6+",
       title: "yillik tajriba",
       description: "O'zbekiston bozorida professional xizmat",
       gradient: "from-blue-500 to-blue-600",
@@ -13,7 +13,7 @@ export function WhyUs() {
     },
     {
       icon: Users,
-      number: "100+",
+      number: "35+",
       title: "mamnun mijoz",
       description: "Butun O'zbekiston bo'ylab ishonchli hamkorlik",
       gradient: "from-green-500 to-green-600",
