@@ -10,26 +10,26 @@ export function FAQ() {
     {
       question: "LMS tizimini joriy qilish qancha vaqt oladi?",
       answer:
-        "O'rtacha 2-4 hafta ichida to'liq ishga tushiriladi. Bu muddatga tayyorgarlik, o'rnatish, sozlash va o'qitish kiradi.",
+        "O'rtacha 1-4 hafta ichida to'liq ishga tushiriladi. Bu muddatga tayyorgarlik, o'rnatish, sozlash va o'qitish kiradi.",
     },
     {
       question: "Texnik bilim talab qilinadimi?",
       answer:
-        "Yo'q, tizim juda sodda va qulay. Biz sizning jamoangizni to'liq o'qitamiz va doimiy qo'llab-quvvatlaymiz.",
+        "Yo'q, tizim juda sodda va qulay. Biz sizning jamoangizni o'qitamiz va doimiy qo'llab-quvvatlaymiz.",
     },
     {
       question: "Ma'lumotlarimiz xavfsizmi?",
       answer:
-        "Ha, biz zamonaviy xavfsizlik standartlaridan foydalanamiz. Barcha ma'lumotlar shifrlangan va xavfsiz serverlarda saqlanadi.",
+        "Ha, biz zamonaviy xavfsizlik standartlaridan foydalanamiz. Barcha ma'lumotlar shifrlangan va xavfsiz serverlarda saqlanadi. Hech kimga berilmayadi.",
     },
     {
-      question: "Qo'llab-quvvatlash xizmati qandaydir?",
-      answer: "24/7 texnik yordam, o'zbek tilida qo'llab-quvvatlash, tez javob berish va muammolarni hal qilish.",
+      question: "Qo'llab-quvvatlash xizmati bormi?",
+      answer: "Ha. 24/7 texnik yordam, o'zbek tilida qo'llab-quvvatlash, tez javob berish va muammolarni hal qilish.",
     },
     {
       question: "Narx nima uchun bir martalik?",
       answer:
-        "Biz shaffoflikqa ishonamiz. Bir martalik to'lovdan keyin tizim sizniki. Faqat server xarajatlari alohida (oyiga 500-800 ming so'm).",
+        "Biz shaffoflikka ishonamiz. Bir martalik to'lovdan keyin platforma sizniki. Xohlasangiz boshqaga sotishingiz mumkin. Faqat server xarajatlari alohida (oyiga 200 ming so'mdan boshlanadi, o'quvchi soniga bog'liq.).",
     },
   ]
 
