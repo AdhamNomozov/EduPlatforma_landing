@@ -12,12 +12,12 @@ export function Process() {
       icon: FileCheck,
       title: "Rejalashtirish",
       description: "Loyihani rejalashtirish va tayyorgarlik",
-      duration: "1 kun",
+      duration: "1-3 kun",
     },
     {
       icon: Settings,
       title: "Joriy qilish",
-      description: "Tizimni o'rnatish va sozlash",
+      description: "Platformani o'rnatish va sozlash",
       duration: "7-10 kun",
       highlight: true,
     },
@@ -34,7 +34,7 @@ export function Process() {
       <div className="container mx-auto px-8 max-w-7xl">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl font-bold text-gray-900 tracking-tight">Qanday ishlaydi?</h2>
-          <p className="text-lg text-gray-600">Oddiy 4 bosqichda sizning LMS tizimingiz tayyor</p>
+          <p className="text-lg text-gray-600">Oddiy 4 bosqichda sizning LMS platformangiz tayyor</p>
         </div>
 
         <div className="max-w-5xl mx-auto">
