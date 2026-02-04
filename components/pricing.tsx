@@ -11,7 +11,7 @@ export function Pricing() {
       segment: "Online ta'lim uchun", // Added segment label
       price: "15M",
       description: "Onlayn kurslar va repetitorlar",
-      features: ["50 tagacha talaba", "3 ta kurs", "Telegram bot", "30 kun support", "Mobil ilova"],
+      features: ["50 tagacha talaba", "3 ta kurs", "web sayt", "Telegram bot", "30 kun support"],
       buttonText: "Demo so'rash",
       buttonVariant: "outline" as const,
     },
@@ -19,7 +19,7 @@ export function Pricing() {
       id: "pricing-professional", // Added ID for scroll target
       name: "Professional",
       segment: "O'quv markazlari uchun", // Added segment label
-      price: "20M",
+      price: "25M",
       description: "Til va kasbiy o'qitish muassasalari",
       features: [
         "200 tagacha talaba",
@@ -37,7 +37,7 @@ export function Pricing() {
       id: "pricing-premium", // Added ID for scroll target (new tier)
       name: "Premium",
       segment: "Maktablar uchun", // Added segment label
-      price: "25M",
+      price: "50M",
       description: "Umumiy ta'lim maktablari",
       features: [
         "1000 tagacha talaba",
@@ -54,8 +54,8 @@ export function Pricing() {
       id: "pricing-enterprise", // Added ID for scroll target (renamed)
       name: "Enterprise",
       segment: "Korporativ uchun", // Added segment label
-      price: "50M+",
-      description: "Yirik tashkilotlar va holding",
+      price: "80M+",
+      description: "universitetlar va yirik tashkilotlar",
       features: ["Cheksiz talabalar", "Maxsus ishlanmalar", "White label", "Dedikatsiyalangan server", "SLA kafolati"],
       buttonText: "Bog'lanish",
       buttonVariant: "secondary" as const,
