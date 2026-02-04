@@ -45,7 +45,7 @@ export function WhyUs() {
       <div className="container mx-auto px-8 max-w-7xl">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl font-bold text-gray-900 tracking-tight">Nega bizni tanlaysizlar?</h2>
-          <p className="text-lg text-gray-600">O'zbekistondagi etakchi LMS joriy qilish xizmati</p>
+          <p className="text-lg text-gray-600">O'zbekistondagi yetakchi LMS platforma joriy qilish xizmati</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
