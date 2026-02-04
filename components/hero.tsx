@@ -15,9 +15,9 @@ const mockData = {
     { name: "Sardor Rahimov", avatar: "S", progress: 93, color: "from-orange-400 to-orange-600" },
   ],
   courses: [
-    { name: "IELTS Speaking", progress: 92, color: "text-blue-500", borderColor: "border-blue-500" },
-    { name: "Grammar Advanced", progress: 85, color: "text-purple-500", borderColor: "border-purple-500" },
-    { name: "Business English", progress: 78, color: "text-green-500", borderColor: "border-green-500" },
+    { name: "Speaking", progress: 92, color: "text-blue-500", borderColor: "border-blue-500" },
+    { name: "Listening", progress: 85, color: "text-purple-500", borderColor: "border-purple-500" },
+    { name: "Writing", progress: 78, color: "text-green-500", borderColor: "border-green-500" },
   ],
 }
 
@@ -111,7 +111,7 @@ export function Hero() {
           <div className="space-y-10 max-w-xl">
             <div className="inline-flex items-center gap-2.5 backdrop-blur-md bg-white/80 border border-gray-200 px-4 py-2.5 rounded-full text-sm shadow-lg shadow-blue-500/5 w-auto">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-gray-700 font-medium">IT Park rezidenti</span>
+              <span className="text-gray-700 font-medium">Sifatli xizmat</span>
               <Shield className="w-4 h-4 text-blue-600" />
             </div>
 
@@ -120,7 +120,7 @@ export function Hero() {
                 className="text-[52px] leading-[1.1] font-medium tracking-tight text-balance text-gray-800"
                 style={{ letterSpacing: "-0.02em" }}
               >
-                Ta'lim biznesingiz uchun
+                Ta'lim biznesingizni
               </h1>
               <h1
                 className="text-[68px] leading-[1.1] font-bold tracking-tight text-balance bg-gradient-to-r from-blue-600 via-purple-500 to-blue-700 bg-clip-text text-transparent relative"
@@ -129,7 +129,7 @@ export function Hero() {
                   textShadow: "0 20px 40px rgba(59, 130, 246, 0.1)",
                 }}
               >
-                professional LMS tizimi
+                onlayn yoki gibrid shaklga o'tkazing
               </h1>
             </div>
 
@@ -152,14 +152,14 @@ export function Hero() {
               >
                 <a href="https://t.me/eduplatforma_bot" target="_blank" rel="noopener noreferrer">
                   <Play className="w-5 h-5 mr-2" fill="currentColor" />
-                  Demo so'rash
+                 Bog'lanish
                 </a>
               </Button>
 
               <div className="flex items-center gap-3 text-sm text-gray-500">
                 <div className="flex items-center gap-1.5">
                   <Users className="w-3.5 h-3.5" />
-                  <span>20+ mijoz</span>
+                  <span>35+ mijoz</span>
                 </div>
                 <span className="text-gray-400">•</span>
                 <div className="flex items-center gap-1.5">
