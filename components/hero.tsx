@@ -129,7 +129,7 @@ export function Hero() {
                   textShadow: "0 20px 40px rgba(59, 130, 246, 0.1)",
                 }}
               >
-                onlayn yoki gibrid shaklga o'tkazing
+                onlaynga o'tkazing
               </h1>
             </div>
 
