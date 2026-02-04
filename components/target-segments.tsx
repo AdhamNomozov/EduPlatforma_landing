@@ -22,9 +22,9 @@ export function TargetSegments() {
   const segments = [
     {
       icon: GraduationCap,
-      title: "Online ta'lim",
+      title: "Repititorlar, kichik o'quv markazlar",
       description: "Onlayn kurslar va repetitorlar uchun",
-      students: "5-50 o'quvchi",
+      students: "50-200 o'quvchi",
       iconGradient: "from-blue-500 to-blue-600",
       iconBg: "bg-gradient-to-br from-blue-500 to-blue-400",
       pricingId: "pricing-basic", // Links to pricing tier
@@ -33,7 +33,7 @@ export function TargetSegments() {
       icon: Building2,
       title: "O'quv markazlari",
       description: "Til va kasbiy o'qitish",
-      students: "20-500 o'quvchi",
+      students: "200-500 o'quvchi",
       iconGradient: "from-orange-500 to-orange-600",
       iconBg: "bg-gradient-to-br from-orange-500 to-orange-400",
       featured: true,
@@ -41,18 +41,18 @@ export function TargetSegments() {
     },
     {
       icon: School,
-      title: "Maktablar",
+      title: "Xususiy maktab va texnikumlar",
       description: "Umumiy ta'lim maktablari",
-      students: "100-2000 o'quvchi",
+      students: "500-2000 o'quvchi",
       iconGradient: "from-green-500 to-green-600",
       iconBg: "bg-gradient-to-br from-green-500 to-green-400",
       pricingId: "pricing-premium", // Links to pricing tier
     },
     {
       icon: Building,
-      title: "Korporativ",
-      description: "Yirik tashkilotlar va holding",
-      students: "500+ o'quvchi",
+      title: "Universitet va yirik tashkilotlar",
+      description: "Yirik tashkilotlar va holding kompaniyalar",
+      students: "3000+ o'quvchi",
       iconGradient: "from-purple-500 to-purple-600",
       iconBg: "bg-gradient-to-br from-purple-500 to-purple-400",
       pricingId: "pricing-enterprise", // Links to pricing tier
