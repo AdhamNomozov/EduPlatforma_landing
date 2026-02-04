@@ -19,12 +19,6 @@ export function Footer() {
                 href="#"
                 className="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-blue-600 hover:text-white hover:scale-110 transition-all text-gray-700"
               >
-                <Telegram size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-blue-600 hover:text-white hover:scale-110 transition-all text-gray-700"
-              >
                 <Instagram size={20} />
               </a>
             </div>
