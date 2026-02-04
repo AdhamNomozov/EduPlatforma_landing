@@ -1,88 +1,103 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import { useState, useEffect } from "react"
+import Link from "next/link"
+import { Send } from "lucide-react"
 
-export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+export function Footer() {
+  const currentYear = new Date().getFullYear()
 
-  // Server-side rendering vaqtida Telegram xatosi bermasligi uchun 
-  // useEffect ichida tekshirish eng xavfsiz yo'l
-  useEffect(() => {
-    // Agar loyihangizda window.Telegram ishlatilsa, u faqat brauzerda ishlaydi
-    if (typeof window !== "undefined" && (window as any).Telegram?.WebApp) {
-      const tg = (window as any).Telegram.WebApp;
-      tg.ready();
-    }
-  }, []);
-
-  const navLinks = [
-    { href: "#xususiyatlar", label: "Xususiyatlar" },
-    { href: "#narxlar", label: "Narxlar" },
-    { href: "#jarayon", label: "Jarayon" },
-    { href: "#faq", label: "FAQ" },
-  ];
+  const sections = [
+    {
+      title: "Xizmatlar",
+      links: [
+        { label: "LMS joriy qilish", href: "#" },
+        { label: "Integratsiya", href: "#" },
+        { label: "O'qitish", href: "#" },
+      ],
+    },
+    {
+      title: "Kompaniya",
+      links: [
+        { label: "Biz haqimizda", href: "#" },
+        { label: "Jamoa", href: "#" },
+        { label: "Kontaktlar", href: "#" },
+      ],
+    },
+    {
+      title: "Aloqa",
+      links: [
+        { label: "Telegram: @eduplatforma_bot", href: "https://t.me/eduplatforma_bot" },
+        { label: "+998 99 746 22 00", href: "tel:+998997462200" },
+        { label: "Termiz, O'zbekiston", href: "#" },
+      ],
+    },
+  ]
 
   return (
-    <header className="sticky top-0 z-50 glass border-b">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">E</span>
+    <footer className="bg-background border-t">
+      <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Logo va Social qismi */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-lg">E</span>
+              </div>
+              <span className="font-bold text-xl tracking-tight uppercase">Eduplatforma</span>
             </div>
-            <span className="font-bold text-xl tracking-tight">EDUPLATFORMA.uz</span>
-          </div>
-
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Professional LMS yechimlar orqali ta'lim tizimingizni raqamlashtiring.
+            </p>
+            <div className="flex items-center gap-4">
               <a 
-                key={link.href}
-                href={link.href} 
-                className="text-sm font-medium hover:text-primary transition-colors"
+                href="https://t.me/eduplatformauz" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                aria-label="Telegram"
               >
-                {link.label}
+                <Send size={18} />
               </a>
-            ))}
-          </nav>
-
-          <div className="hidden md:flex items-center gap-4">
-            <Button size="sm" className="bg-primary hover:bg-primary/90" asChild>
-              <a href="https://t.me/eduplatforma_bot" target="_blank" rel="noopener noreferrer">
-                Bepul maslahat
-              </a>
-            </Button>
+            </div>
           </div>
 
-          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Navigatsiya qismlari */}
+          {sections.map((section) => (
+            <div key={section.title}>
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-6">
+                {section.title}
+              </h3>
+              <ul className="space-y-4">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <a 
+                      href={link.href} 
+                      className="text-muted-foreground hover:text-primary text-sm transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-4 animate-in slide-in-from-top-2">
-            {navLinks.map((link) => (
-              <a 
-                key={link.href}
-                href={link.href} 
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-sm font-medium hover:text-primary transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="flex flex-col gap-2 pt-4 border-t">
-              <Button size="sm" className="bg-primary hover:bg-primary/90 w-full" asChild>
-                <a href="https://t.me/eduplatforma_bot" target="_blank" rel="noopener noreferrer">
-                  Bepul maslahat
-                </a>
-              </Button>
-            </div>
+        {/* Bottom bar */}
+        <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-muted-foreground text-xs">
+            © {currentYear} EDUPLATFORMA.uz. Barcha huquqlar himoyalangan.
+          </p>
+          <div className="flex gap-6">
+            <a href="#" className="text-muted-foreground hover:text-primary text-xs transition-colors">
+              Maxfiylik siyosati
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-primary text-xs transition-colors">
+              Foydalanish shartlari
+            </a>
           </div>
-        )}
+        </div>
       </div>
-    </header>
+    </footer>
   )
 }
