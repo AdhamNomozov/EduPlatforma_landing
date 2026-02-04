@@ -1,125 +1,94 @@
-import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react"
+"use client"
+
+import Image from "next/image"
+import { Send } from "lucide-react"
 
 export function Footer() {
-  return (
-    <footer className="bg-white border-t border-gray-200 py-20">
-      <div className="container mx-auto px-8 max-w-7xl">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-2xl">E</span>
-              </div>
-              <span className="font-bold text-xl text-gray-900">EDUPLATFORMA.uz</span>
-            </div>
-            <p className="text-[15px] text-gray-600 mb-6 max-w-xs leading-relaxed">Professional LMS yechimlar</p>
+  const currentYear = new Date().getFullYear()
 
-            <div className="flex gap-3">
-              <a
-                href="#"
-                className="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-blue-600 hover:text-white hover:scale-110 transition-all text-gray-700"
+  const sections = [
+    {
+      title: "Xizmatlar",
+      links: [
+        { label: "LMS joriy qilish", href: "#" },
+        { label: "Integratsiya", href: "#" },
+        { label: "O'qitish", href: "#" },
+      ],
+    },
+    {
+      title: "Kompaniya",
+      links: [
+        { label: "Biz haqimizda", href: "#" },
+        { label: "Jamoa", href: "#" },
+        { label: "Kontaktlar", href: "#" },
+      ],
+    },
+    {
+      title: "Aloqa",
+      links: [
+        { label: "Telegram: @eduplatforma_bot", href: "https://t.me/eduplatforma_bot" },
+        { label: "+998 99 746 22 00", href: "tel:+998997462200" },
+        { label: "Termiz, O'zbekiston", href: "#" },
+      ],
+    },
+  ]
+
+  return (
+    <footer className="bg-background border-t">
+      <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div className="space-y-6">
+            <div className="flex items-center gap-2">
+              {/* YANGI LOGOTIP */}
+              <Image 
+                src="/logo_edu.png" 
+                alt="Eduplatforma Logo" 
+                width={32} 
+                height={32} 
+                className="rounded-md"
+              />
+              <span className="font-bold text-xl tracking-tight uppercase">Eduplatforma</span>
+            </div>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Professional LMS yechimlar orqali ta'lim tizimingizni raqamlashtiring.
+            </p>
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://t.me/eduplatformauz" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               >
-                <Instagram size={20} />
+                <Send size={18} />
               </a>
             </div>
           </div>
 
-          <div>
-            <h3 className="text-[13px] font-semibold text-gray-500 uppercase tracking-wider mb-4">Xizmatlar</h3>
-            <ul className="space-y-3.5 text-base text-gray-700">
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-600 hover:translate-x-0.5 inline-block transition-all duration-200"
-                >
-                  LMS joriy qilish
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-600 hover:translate-x-0.5 inline-block transition-all duration-200"
-                >
-                  Integratsiya
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-600 hover:translate-x-0.5 inline-block transition-all duration-200"
-                >
-                  O'qitish
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-600 hover:translate-x-0.5 inline-block transition-all duration-200"
-                >
-                  Qo'llab-quvvatlash
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-[13px] font-semibold text-gray-500 uppercase tracking-wider mb-4">Kompaniya</h3>
-            <ul className="space-y-3.5 text-base text-gray-700">
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-600 hover:translate-x-0.5 inline-block transition-all duration-200"
-                >
-                  Biz haqimizda
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-600 hover:translate-x-0.5 inline-block transition-all duration-200"
-                >
-                  Jamoa
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-600 hover:translate-x-0.5 inline-block transition-all duration-200"
-                >
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-600 hover:translate-x-0.5 inline-block transition-all duration-200"
-                >
-                  Kontaktlar
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-[13px] font-semibold text-gray-500 uppercase tracking-wider mb-4">Aloqa</h3>
-            <ul className="space-y-3.5 text-base text-gray-700">
-              <li>Telegram: @eduplatforma_bot</li>
-              <li>Tel: +998 99 746 22 00</li>
-              <li>Email: info@eduplatforma.uz</li>
-              <li>Termiz, O'zbekiston</li>
-            </ul>
-          </div>
+          {sections.map((section) => (
+            <div key={section.title}>
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-6">
+                {section.title}
+              </h3>
+              <ul className="space-y-4">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-muted-foreground hover:text-primary text-sm transition-colors">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="border-t border-gray-200 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>&copy; 2025 EDUPLATFORMA.uz. Barcha huquqlar himoyalangan.</p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-gray-900 transition-colors">
-              Maxfiylik siyosati
-            </a>
-            <a href="#" className="hover:text-gray-900 transition-colors">
-              Foydalanish shartlari
-            </a>
+        <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-muted-foreground text-xs">
+            © {currentYear} EDUPLATFORMA.uz. Barcha huquqlar himoyalangan.
+          </p>
+          <div className="flex gap-6">
+            <a href="#" className="text-muted-foreground hover:text-primary text-xs transition-colors">Maxfiylik siyosati</a>
+            <a href="#" className="text-muted-foreground hover:text-primary text-xs transition-colors">Foydalanish shartlari</a>
           </div>
         </div>
       </div>
