@@ -19,25 +19,13 @@ export function Footer() {
                 href="#"
                 className="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-blue-600 hover:text-white hover:scale-110 transition-all text-gray-700"
               >
-                <Facebook size={20} />
+                <Telegram size={20} />
               </a>
               <a
                 href="#"
                 className="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-blue-600 hover:text-white hover:scale-110 transition-all text-gray-700"
               >
                 <Instagram size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-blue-600 hover:text-white hover:scale-110 transition-all text-gray-700"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-blue-600 hover:text-white hover:scale-110 transition-all text-gray-700"
-              >
-                <Youtube size={20} />
               </a>
             </div>
           </div>
@@ -122,9 +110,9 @@ export function Footer() {
             <h3 className="text-[13px] font-semibold text-gray-500 uppercase tracking-wider mb-4">Aloqa</h3>
             <ul className="space-y-3.5 text-base text-gray-700">
               <li>Telegram: @eduplatforma_bot</li>
-              <li>Tel: +998 90 123 45 67</li>
+              <li>Tel: +998 99 746 22 00</li>
               <li>Email: info@eduplatforma.uz</li>
-              <li>Toshkent, O'zbekiston</li>
+              <li>Termiz, O'zbekiston</li>
             </ul>
           </div>
         </div>
