@@ -22,7 +22,7 @@ export function TargetSegments() {
   const segments = [
     {
       icon: GraduationCap,
-      title: "Repetitorlar & Markazlar",
+      title: "Repetitorlar",
       students: "50-200 o'quvchi",
       desc: "Onlayn kurslar va kichik jamoalar uchun moslashuvchan yechim.",
       color: "blue",
@@ -30,8 +30,8 @@ export function TargetSegments() {
     },
     {
       icon: Building2,
-      title: "O'quv Markazlari",
-      students: "200-500 o'quvchi",
+      title: "O'quv markazlari",
+      students: "200-1000 o'quvchi",
       desc: "Til markazlari va kasbiy ta'lim muassasalari uchun professional boshqaruv.",
       color: "orange",
       featured: true,
@@ -39,15 +39,15 @@ export function TargetSegments() {
     },
     {
       icon: School,
-      title: "Maktab & Litseylar",
-      students: "500-2000 o'quvchi",
+      title: "Maktab, Litseylar",
+      students: "1000-3000 o'quvchi",
       desc: "Umumiy ta'lim va xususiy maktablar uchun to'liq raqamli ekotizim.",
       color: "emerald",
       pricingId: "pricing-premium",
     },
     {
       icon: Building,
-      title: "Universitet & Holding",
+      title: "Universitet, Kompaniyalar",
       students: "3000+ o'quvchi",
       desc: "Yirik tashkilotlar uchun maxsus integratsiyalar va yuqori quvvatli serverlar.",
       color: "purple",
