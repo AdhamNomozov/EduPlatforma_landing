@@ -208,3 +208,28 @@ html {
   box-shadow: 0 0 50px 0 rgba(37, 99, 235, 0.15);
   transition: all 0.5s ease;
 }
+@layer base {
+  :root {
+    --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-jakarta);
+    /* Webda o'qishni osonlashtiruvchi standartlar */
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Sarlavhalar uchun maxsus zichlik */
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+}
+
+/* Sectionlar orasidagi masofani Webda kengaytirish */
+section {
+  @apply py-20 md:py-32 lg:py-40;
+}
