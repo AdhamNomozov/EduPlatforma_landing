@@ -20,7 +20,6 @@
   --ring: oklch(0.59 0.207 254.6);
   --radius: 1rem;
   
-  /* Modern Typography Variables */
   --font-jakarta: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -34,10 +33,8 @@
 }
 
 @theme inline {
-  /* Default Geist o'rniga Jakarta o'rnatildi */
   --font-sans: var(--font-jakarta);
   --font-jakarta: var(--font-jakarta);
-  
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
@@ -49,7 +46,8 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    /* TO'G'IRLANDI: outline-ring/50 o'rniga oddiy border ishlatildi */
+    @apply border-border; 
     transition: background-color 0.2s, border-color 0.2s, opacity 0.2s;
   }
 
@@ -65,13 +63,11 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Sectionlar orasidagi masofa: Jipslashtirilgan va "Breathe" muvozanati */
+  /* Sectionlar orasidagi masofa optimallashgan */
   section {
-    /* Mobilda 64px, Webda 112px - ortiqcha bo'shliqlar olib tashlandi */
     @apply py-16 md:py-24 lg:py-28 overflow-hidden;
   }
 
-  /* Sarlavhalar - Zamonaviy va o'qishga qulay */
   h1, h2, h3, h4 {
     @apply tracking-tight font-extrabold text-slate-900;
     letter-spacing: -0.025em;
@@ -79,18 +75,12 @@
   }
 }
 
-/* --- Premium Utilities --- */
-
 /* Glassmorphism */
 .glass {
   @apply bg-white/60 backdrop-blur-xl border border-white/20 shadow-sm;
 }
 
-.dark .glass {
-  @apply bg-slate-900/40 backdrop-blur-xl border-white/10;
-}
-
-/* Custom Animations */
+/* Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
@@ -100,13 +90,7 @@
   animation: float 4s ease-in-out infinite;
 }
 
-/* Section Highlighting */
 .highlight-glow {
   box-shadow: 0 0 40px rgba(59, 130, 246, 0.1);
   @apply border-blue-200/50 transition-all duration-700;
-}
-
-/* O'qishni osonlashtiruvchi Paragraph klassi */
-p {
-  @apply text-slate-600 leading-relaxed;
 }
