@@ -42,31 +42,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uz" className="scroll-smooth" suppressHydrationWarning>
-      <body 
-        className={`
-          ${jakarta.variable} 
-          font-jakarta 
-          antialiased 
-          bg-white 
-          text-slate-900 
-          selection:bg-blue-600 
-          selection:text-white
-        `}
-      >
-        {/* Orqa fon effektlari - yuqori darajadagi vizualizatsiya */}
-        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none select-none">
-          <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-blue-100/40 rounded-full blur-[120px] opacity-50" />
-          <div className="absolute top-[20%] -right-[10%] w-[50%] h-[50%] bg-indigo-100/30 rounded-full blur-[100px] opacity-40" />
-          <div className="absolute bottom-[-10%] left-[15%] w-[55%] h-[55%] bg-sky-100/30 rounded-full blur-[110px] opacity-50" />
-        </div>
+// layout.tsx ichidagi body klassini yangilang
+<body 
+  className={`${jakarta.variable} font-jakarta antialiased bg-white text-[#0f172a] selection:bg-blue-600 selection:text-white`}
+>
+  {/* Fon elementlari - faqat pastki qatlamda qoladi */}
+  <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none select-none">
+    <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-50/50 rounded-full blur-[130px]" />
+    <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-indigo-50/40 rounded-full blur-[120px]" />
+  </div>
 
-        {/* Asosiy kontent o'rami */}
-        <main className="relative z-0 flex flex-col min-h-screen">
-          {children}
-        </main>
-
-        <Analytics />
-      </body>
+  <main className="relative z-10 flex flex-col min-h-screen">
+    {children}
+  </main>
+</body>
     </html>
   )
 }
