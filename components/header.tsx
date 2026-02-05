@@ -36,26 +36,26 @@ export function Header() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex items-center justify-between">
             
-            {/* LOGOTIP - Interaktiv effekt bilan */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3"
-            >
-              <a href="/" className="flex items-center gap-3 group">
-                <div className="relative w-10 h-10 overflow-hidden rounded-xl shadow-lg transition-transform group-hover:scale-110 group-hover:rotate-3">
-                  <Image 
-                    src="/logo_edu.png" 
-                    alt="Eduplatforma Logo" 
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <span className="font-black text-xl tracking-tighter text-slate-900 uppercase">
-                  Edu<span className="text-blue-600">platforma</span>
-                </span>
-              </a>
-            </motion.div>
+          {/* LOGOTIP - Dumaloqdan kvadrat (rounded-xl) holatga o'tkazildi */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-3"
+          >
+            <a href="/" className="flex items-center gap-3 group">
+              <div className="relative w-10 h-10 overflow-hidden rounded-xl shadow-lg transition-transform group-hover:scale-110 group-hover:rotate-3">
+                <Image 
+                  src="/logo_edu.png" 
+                  alt="Eduplatforma Logo" 
+                  fill
+                  className="object-cover" // Logotip kvadrat ichida to'liq ko'rinishi uchun
+                />
+              </div>
+              <span className="font-black text-xl tracking-tighter text-slate-900 uppercase">
+                Edu<span className="text-blue-600">platforma</span>
+              </span>
+            </a>
+          </motion.div>
 
             {/* DESKTOP NAV - Premium Typography */}
             <nav className="hidden md:flex items-center gap-10">
