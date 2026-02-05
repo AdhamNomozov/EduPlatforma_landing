@@ -191,3 +191,20 @@ html {
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+@layer base {
+  /* Sectionlar orasidagi masofani professional standartga keltiramiz */
+  section {
+    @apply py-24 md:py-32 lg:py-40; /* Mobilda 96px, Desktopda 160px gacha */
+  }
+
+  /* Shriftni barcha joyda majburiy Jakarta qilish */
+  body {
+    font-family: var(--font-jakarta), sans-serif;
+  }
+}
+
+/* Karta va elementlar uchun "Highlight" effekti */
+.highlight-glow {
+  box-shadow: 0 0 50px 0 rgba(37, 99, 235, 0.15);
+  transition: all 0.5s ease;
+}
