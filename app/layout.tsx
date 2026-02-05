@@ -42,7 +42,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uz" className="scroll-smooth" suppressHydrationWarning>
-// layout.tsx ichidagi body klassini yangilang
 <body 
   className={`${jakarta.variable} font-jakarta antialiased bg-white text-[#0f172a] selection:bg-blue-600 selection:text-white`}
 >
