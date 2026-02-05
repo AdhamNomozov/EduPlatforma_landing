@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ArrowRight, MessageCircle } from "lucide-react"
+import { Menu, X, ArrowRight, MessageCircle, Sparkles } from "lucide-react"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -10,20 +10,16 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
-  // Scroll holatini kuzatish (Sticky effekt uchun)
+  // Scroll holatini kuzatish
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Mobil menyu ochilganda scrollni to'xtatish
+  // Mobil menyu ochilganda scrollni bloklash
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'unset'
   }, [mobileMenuOpen])
 
   const navLinks = [
@@ -36,23 +32,19 @@ export function Header() {
   return (
     <>
       <header 
-        className={`sticky top-0 z-[60] transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${
           scrolled 
-          ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" 
-          : "py-5 bg-transparent"
+          ? "py-3 bg-white/70 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" 
+          : "py-6 bg-transparent"
         }`}
       >
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex items-center justify-between">
             
             {/* LOGOTIP */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3"
-            >
+            <div className="flex items-center gap-3">
               <a href="/" className="flex items-center gap-3 group">
-                <div className="relative w-10 h-10 overflow-hidden rounded-xl shadow-lg transition-transform group-hover:scale-105">
+                <div className="relative w-10 h-10 overflow-hidden rounded-xl shadow-lg group-hover:rotate-3 transition-transform duration-300">
                   <Image 
                     src="/logo_edu.png" 
                     alt="Eduplatforma Logo" 
@@ -60,48 +52,41 @@ export function Header() {
                     className="object-cover"
                   />
                 </div>
-                <span className="font-black text-xl tracking-tighter text-slate-900 uppercase">
+                <span className="font-extrabold text-xl tracking-tighter text-slate-900 uppercase">
                   Edu<span className="text-blue-600">platforma</span>
                 </span>
               </a>
-            </motion.div>
+            </div>
 
             {/* DESKTOP NAV */}
             <nav className="hidden md:flex items-center gap-10">
-              {navLinks.map((link, i) => (
-                <motion.a 
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+              {navLinks.map((link) => (
+                <a 
                   key={link.href} 
                   href={link.href} 
                   className="text-[13px] font-bold uppercase tracking-widest text-slate-500 hover:text-blue-600 transition-colors"
                 >
                   {link.label}
-                </motion.a>
+                </a>
               ))}
             </nav>
 
             {/* DESKTOP CTA */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="hidden md:flex items-center gap-4"
-            >
-              <Button size="lg" className="rounded-full bg-slate-900 hover:bg-blue-600 transition-all duration-300 shadow-xl shadow-slate-200" asChild>
+            <div className="hidden md:flex items-center gap-4">
+              <Button size="lg" className="rounded-2xl bg-slate-900 hover:bg-blue-600 transition-all duration-300 shadow-xl shadow-slate-200" asChild>
                 <a href="https://t.me/eduplatforma_bot" target="_blank" rel="noopener noreferrer" className="gap-2">
                   <MessageCircle className="w-4 h-4" />
-                  Bepul konsultatsiya
+                  Bepul maslahat
                 </a>
               </Button>
-            </motion.div>
+            </div>
 
             {/* MOBILE TOGGLE */}
             <button 
-              className="md:hidden p-2 rounded-xl bg-slate-100 text-slate-900 transition-colors active:scale-90" 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-3 rounded-2xl bg-slate-100 text-slate-900 active:scale-90 transition-transform" 
+              onClick={() => setMobileMenuOpen(true)}
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              <Menu size={24} />
             </button>
           </div>
         </div>
@@ -114,49 +99,52 @@ export function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[55] md:hidden"
+            className="fixed inset-0 z-[100] md:hidden"
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-md" onClick={() => setMobileMenuOpen(false)} />
+            <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-md" onClick={() => setMobileMenuOpen(false)} />
             
-            {/* Content */}
+            {/* Drawer Content */}
             <motion.div 
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-[80%] bg-white p-8 shadow-2xl flex flex-col"
+              className="absolute right-0 top-0 bottom-0 w-[85%] bg-white p-8 shadow-2xl flex flex-col"
             >
-              <div className="flex justify-end mb-8">
+              <div className="flex justify-between items-center mb-12">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-blue-600" />
+                  <span className="font-black text-sm uppercase tracking-widest text-slate-400">Menyu</span>
+                </div>
                 <button onClick={() => setMobileMenuOpen(false)} className="p-2 bg-slate-50 rounded-full">
                    <X size={24} className="text-slate-900" />
                 </button>
               </div>
 
-              <div className="space-y-6 flex-1">
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Menyu</p>
+              <nav className="space-y-6 flex-1">
                 {navLinks.map((link) => (
                   <a 
                     key={link.href} 
                     href={link.href} 
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between text-2xl font-bold text-slate-900 group"
+                    className="flex items-center justify-between text-2xl font-black text-slate-900 hover:text-blue-600 transition-colors group"
                   >
                     {link.label}
-                    <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all" />
+                    <ArrowRight className="w-6 h-6 text-slate-200 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                   </a>
                 ))}
-              </div>
+              </nav>
 
-              <div className="pt-8 border-t border-slate-100">
+              <div className="pt-8 border-t border-slate-100 space-y-4">
                 <Button size="lg" className="w-full h-14 rounded-2xl bg-blue-600 hover:bg-blue-700 font-bold shadow-lg shadow-blue-200" asChild>
-                  <a href="https://t.me/eduplatforma_bot" target="_blank" rel="noopener noreferrer">
-                    Demo-tur olish
+                  <a href="https://t.me/eduplatforma_bot">
+                    Bepul Demo Olish
                   </a>
                 </Button>
-                <p className="mt-4 text-center text-xs text-slate-400 font-medium italic">
-                  7/24 onlayn yordam
-                </p>
+                <a href="tel:+998997462200" className="flex items-center justify-center gap-2 py-3 text-slate-500 font-bold text-sm">
+                  +998 99 746 22 00
+                </a>
               </div>
             </motion.div>
           </motion.div>
