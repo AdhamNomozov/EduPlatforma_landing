@@ -11,7 +11,7 @@ const tiers = [
     price: "15M",
     description: "Repetitorlar uchun professional start.",
     features: [
-      "100 tagacha talaba", 
+      "500 tagacha talaba", 
       "5 ta asosiy kurs", 
       "Maxsus Web sayt", 
       "Telegram bot integratsiyasi", 
@@ -28,7 +28,7 @@ const tiers = [
     price: "25M",
     description: "O'quv markazlar uchun eng mukammal yechim.",
     features: [
-      "1000 tagacha talaba",
+      "1500 tagacha talaba",
       "10 ta kurs va darsliklar",
       "AI chatbot integratsiyasi",
       "To'lov tizimlari (Payme, Click)",
