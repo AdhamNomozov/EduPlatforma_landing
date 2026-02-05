@@ -23,7 +23,7 @@ export function TargetSegments() {
     {
       icon: GraduationCap,
       title: "Repetitorlar",
-      students: "50-200 o'quvchi",
+      students: "50-500 o'quvchi",
       desc: "Onlayn kurslar va kichik jamoalar uchun moslashuvchan yechim.",
       color: "blue",
       pricingId: "pricing-basic",
@@ -31,7 +31,7 @@ export function TargetSegments() {
     {
       icon: Building2,
       title: "O'quv markazlari",
-      students: "200-1000 o'quvchi",
+      students: "500-1500 o'quvchi",
       desc: "Til markazlari va kasbiy ta'lim muassasalari uchun professional boshqaruv.",
       color: "orange",
       featured: true,
@@ -48,7 +48,7 @@ export function TargetSegments() {
     {
       icon: Building,
       title: "Universitet, Kompaniyalar",
-      students: "3000+ o'quvchi",
+      students: "10000+ o'quvchi",
       desc: "Yirik tashkilotlar uchun maxsus integratsiyalar va yuqori quvvatli serverlar.",
       color: "purple",
       pricingId: "pricing-enterprise",
