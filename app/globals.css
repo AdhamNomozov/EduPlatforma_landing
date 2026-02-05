@@ -4,40 +4,24 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to premium B2B SaaS color scheme with blue and orange */
+  /* Premium B2B SaaS Palette */
   --background: oklch(0.99 0 0);
   --foreground: oklch(0.15 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.15 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0 0);
   --primary: oklch(0.59 0.207 254.6); /* Blue #3B82F6 */
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.95 0 0);
-  --secondary-foreground: oklch(0.15 0 0);
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.52 0 0);
   --accent: oklch(0.71 0.193 42.05); /* Orange #F97316 */
   --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.52 0 0);
   --border: oklch(0.91 0 0);
   --input: oklch(0.91 0 0);
   --ring: oklch(0.59 0.207 254.6);
-  --chart-1: oklch(0.59 0.207 254.6);
-  --chart-2: oklch(0.71 0.193 42.05);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --radius: 1rem;
+  
+  /* Modern Typography Variables */
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
 }
 
 .dark {
@@ -45,191 +29,84 @@
   --foreground: oklch(0.98 0 0);
   --card: oklch(0.12 0 0);
   --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.98 0 0);
   --primary: oklch(0.59 0.207 254.6);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.22 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.71 0.193 42.05);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.22 0 0);
-  --input: oklch(0.22 0 0);
-  --ring: oklch(0.59 0.207 254.6);
-  --chart-1: oklch(0.59 0.207 254.6);
-  --chart-2: oklch(0.71 0.193 42.05);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  /* Default Geist o'rniga Jakarta o'rnatildi */
+  --font-sans: var(--font-jakarta);
+  --font-jakarta: var(--font-jakarta);
+  
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-2xl: calc(var(--radius) + 12px);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    transition: background-color 0.2s, border-color 0.2s, opacity 0.2s;
   }
+
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-jakarta);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Sectionlar orasidagi masofa: Jipslashtirilgan va "Breathe" muvozanati */
+  section {
+    /* Mobilda 64px, Webda 112px - ortiqcha bo'shliqlar olib tashlandi */
+    @apply py-16 md:py-24 lg:py-28 overflow-hidden;
+  }
+
+  /* Sarlavhalar - Zamonaviy va o'qishga qulay */
+  h1, h2, h3, h4 {
+    @apply tracking-tight font-extrabold text-slate-900;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
   }
 }
 
-/* Added glassmorphism utilities */
+/* --- Premium Utilities --- */
+
+/* Glassmorphism */
 .glass {
-  @apply bg-white/60 backdrop-blur-xl border border-white/20;
+  @apply bg-white/60 backdrop-blur-xl border border-white/20 shadow-sm;
 }
 
 .dark .glass {
-  @apply bg-white/5 backdrop-blur-xl border-white/10;
+  @apply bg-slate-900/40 backdrop-blur-xl border-white/10;
 }
 
-/* Removed excessive animations, kept only essential ones */
+/* Custom Animations */
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes countUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
-.animate-countUp {
-  animation: countUp 0.5s ease-out;
-}
-
-/* Added highlight glow animation for pricing cards when scrolled to */
-@keyframes glow {
-  0%,
-  100% {
-    box-shadow: 0 0 0 rgba(59, 130, 246, 0);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(59, 130, 246, 0.3);
-  }
-}
-
+/* Section Highlighting */
 .highlight-glow {
-  animation: glow 2s ease-in-out;
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.1);
+  @apply border-blue-200/50 transition-all duration-700;
 }
 
-/* Removed noise texture overlay - too busy */
-
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Simplified transitions */
-* {
-  transition-duration: 0.2s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-@layer base {
-  /* Sectionlar orasidagi masofani professional standartga keltiramiz */
-  section {
-    @apply py-24 md:py-32 lg:py-40; /* Mobilda 96px, Desktopda 160px gacha */
-  }
-
-  /* Shriftni barcha joyda majburiy Jakarta qilish */
-  body {
-    font-family: var(--font-jakarta), sans-serif;
-  }
-}
-
-/* Karta va elementlar uchun "Highlight" effekti */
-.highlight-glow {
-  box-shadow: 0 0 50px 0 rgba(37, 99, 235, 0.15);
-  transition: all 0.5s ease;
-}
-@layer base {
-  :root {
-    --font-jakarta: 'Plus Jakarta Sans', sans-serif;
-  }
-
-  body {
-    font-family: var(--font-jakarta);
-    /* Webda o'qishni osonlashtiruvchi standartlar */
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Sarlavhalar uchun maxsus zichlik */
-  h1, h2, h3, h4 {
-    letter-spacing: -0.02em;
-    font-weight: 800;
-  }
-}
-
-/* Sectionlar orasidagi masofani Webda kengaytirish */
-section {
-  @apply py-20 md:py-32 lg:py-40;
+/* O'qishni osonlashtiruvchi Paragraph klassi */
+p {
+  @apply text-slate-600 leading-relaxed;
 }
