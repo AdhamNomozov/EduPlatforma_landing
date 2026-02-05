@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ArrowRight, MessageCircle, Sparkles } from "lucide-react"
+import { Menu, X, MessageCircle, Sparkles } from "lucide-react"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -10,17 +10,12 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
-  // Scroll holatini kuzatish
+  // Skrol holatini kuzatish - Header effektini o'zgartirish uchun
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  // Mobil menyu ochilganda scrollni bloklash
-  useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'unset'
-  }, [mobileMenuOpen])
 
   const navLinks = [
     { href: "#xususiyatlar", label: "Xususiyatlar" },
@@ -34,17 +29,21 @@ export function Header() {
       <header 
         className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${
           scrolled 
-          ? "py-3 bg-white/70 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" 
+          ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" 
           : "py-6 bg-transparent"
         }`}
       >
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex items-center justify-between">
             
-            {/* LOGOTIP */}
-            <div className="flex items-center gap-3">
+            {/* LOGOTIP - Interaktiv effekt bilan */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="flex items-center gap-3"
+            >
               <a href="/" className="flex items-center gap-3 group">
-                <div className="relative w-10 h-10 overflow-hidden rounded-xl shadow-lg group-hover:rotate-3 transition-transform duration-300">
+                <div className="relative w-10 h-10 overflow-hidden rounded-xl shadow-lg transition-transform group-hover:scale-110 group-hover:rotate-3">
                   <Image 
                     src="/logo_edu.png" 
                     alt="Eduplatforma Logo" 
@@ -52,38 +51,49 @@ export function Header() {
                     className="object-cover"
                   />
                 </div>
-                <span className="font-extrabold text-xl tracking-tighter text-slate-900 uppercase">
+                <span className="font-black text-xl tracking-tighter text-slate-900 uppercase">
                   Edu<span className="text-blue-600">platforma</span>
                 </span>
               </a>
-            </div>
+            </motion.div>
 
-            {/* DESKTOP NAV */}
+            {/* DESKTOP NAV - Premium Typography */}
             <nav className="hidden md:flex items-center gap-10">
-              {navLinks.map((link) => (
-                <a 
+              {navLinks.map((link, i) => (
+                <motion.a 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
                   key={link.href} 
                   href={link.href} 
-                  className="text-[13px] font-bold uppercase tracking-widest text-slate-500 hover:text-blue-600 transition-colors"
+                  className="text-[13px] font-bold uppercase tracking-widest text-slate-500 hover:text-blue-600 transition-all hover:-translate-y-0.5"
                 >
                   {link.label}
-                </a>
+                </motion.a>
               ))}
             </nav>
 
-            {/* DESKTOP CTA */}
-            <div className="hidden md:flex items-center gap-4">
-              <Button size="lg" className="rounded-2xl bg-slate-900 hover:bg-blue-600 transition-all duration-300 shadow-xl shadow-slate-200" asChild>
-                <a href="https://t.me/eduplatforma_bot" target="_blank" rel="noopener noreferrer" className="gap-2">
+            {/* DESKTOP CTA - TUZATILDI: Qora tugma o'rniga Primary Blue */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="hidden md:flex items-center gap-4"
+            >
+              <Button 
+                size="lg" 
+                className="rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 shadow-xl shadow-blue-200 transition-all hover:-translate-y-1 active:scale-95"
+                asChild
+              >
+                <a href="https://t.me/eduplatforma_bot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   <MessageCircle className="w-4 h-4" />
                   Bepul maslahat
                 </a>
               </Button>
-            </div>
+            </motion.div>
 
-            {/* MOBILE TOGGLE */}
+            {/* MOBILE MENU TOGGLE */}
             <button 
-              className="md:hidden p-3 rounded-2xl bg-slate-100 text-slate-900 active:scale-90 transition-transform" 
+              className="md:hidden p-2.5 rounded-xl bg-slate-100 text-slate-900 active:scale-90 transition-transform" 
               onClick={() => setMobileMenuOpen(true)}
             >
               <Menu size={24} />
@@ -92,7 +102,7 @@ export function Header() {
         </div>
       </header>
 
-      {/* MOBILE MENU DRAWER */}
+      {/* MOBILE MENU DRAWER - Mobile First yondashuv */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
@@ -102,7 +112,7 @@ export function Header() {
             className="fixed inset-0 z-[100] md:hidden"
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-md" onClick={() => setMobileMenuOpen(false)} />
+            <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-md" onClick={() => setMobileMenuOpen(false)} />
             
             {/* Drawer Content */}
             <motion.div 
@@ -128,23 +138,23 @@ export function Header() {
                     key={link.href} 
                     href={link.href} 
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between text-2xl font-black text-slate-900 hover:text-blue-600 transition-colors group"
+                    className="block text-2xl font-black text-slate-900 hover:text-blue-600 transition-colors"
                   >
                     {link.label}
-                    <ArrowRight className="w-6 h-6 text-slate-200 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                   </a>
                 ))}
               </nav>
 
-              <div className="pt-8 border-t border-slate-100 space-y-4">
-                <Button size="lg" className="w-full h-14 rounded-2xl bg-blue-600 hover:bg-blue-700 font-bold shadow-lg shadow-blue-200" asChild>
+              <div className="pt-8 border-t border-slate-100">
+                <Button 
+                  size="lg" 
+                  className="w-full h-14 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-200"
+                  asChild
+                >
                   <a href="https://t.me/eduplatforma_bot">
-                    Bepul Demo Olish
+                    Bepul konsultatsiya
                   </a>
                 </Button>
-                <a href="tel:+998997462200" className="flex items-center justify-center gap-2 py-3 text-slate-500 font-bold text-sm">
-                  +998 99 746 22 00
-                </a>
               </div>
             </motion.div>
           </motion.div>
