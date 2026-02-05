@@ -110,7 +110,7 @@ export function Hero() {
               <Button size="lg" className="h-14 px-8 rounded-2xl bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-200 text-white font-bold text-base" asChild>
                 <a href="https://t.me/eduplatforma_bot" target="_blank" rel="noopener noreferrer">
                   <Play className="w-5 h-5 mr-2 fill-current" />
-                  Bepul demo olish
+                  Sinab ko'rish
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="h-14 px-8 rounded-2xl border-2 hover:bg-slate-50 font-bold text-slate-700" asChild>
