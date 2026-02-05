@@ -1,13 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { Analytics } from "@vercel/analytics/react" // Vercel standartiga moslandi
+// Zamonaviy Plus Jakarta Sans shriftini ulaymiz
+import { Plus_Jakarta_Sans } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css"
 
-const inter = Inter({
-  subsets: ["latin", "cyrillic"],
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-jakarta",
+  weight: ["400", "500", "600", "700", "800"],
 })
 
 export const metadata: Metadata = {
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
   description: "O'zbekistonda ta'lim markazlari va maktablar uchun zamonaviy LMS tizimlarini joriy qilish",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   icons: {
-    icon: "/logo_edu.png", // Siz yuklagan yangi logotipga bog'landi
+    icon: "/logo_edu.png",
     apple: "/logo_edu.png",
   },
 }
@@ -28,20 +30,20 @@ export default function RootLayout({
   return (
     <html lang="uz" className="scroll-smooth">
       <body 
-        className={`${inter.variable} font-sans antialiased bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-700`}
+        className={`${jakarta.variable} font-sans antialiased bg-white text-slate-900 selection:bg-blue-600 selection:text-white`}
       >
-        {/* Global fon elementlari - Professionalizm beruvchi qatlam */}
+        {/* Global fon elementlari - Premium qatlam */}
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-          {/* Mesh Gradient dog'lari */}
-          <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-blue-50 rounded-full blur-[120px] opacity-60" />
-          <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] bg-indigo-50 rounded-full blur-[100px] opacity-40" />
-          <div className="absolute -bottom-[10%] left-[20%] w-[35%] h-[35%] bg-blue-50/50 rounded-full blur-[110px] opacity-50" />
+          {/* Sifatliroq va aniqroq Mesh Gradient dog'lari */}
+          <div className="absolute top-[-5%] left-[-5%] w-[50%] h-[50%] bg-blue-100/30 rounded-full blur-[120px] opacity-40 animate-pulse" />
+          <div className="absolute top-[10%] right-[-10%] w-[40%] h-[40%] bg-indigo-100/20 rounded-full blur-[100px] opacity-30" />
+          <div className="absolute bottom-[0%] left-[10%] w-[45%] h-[45%] bg-sky-100/20 rounded-full blur-[110px] opacity-40" />
           
-          {/* Nozik Grid pattern (Klassik SaaS ko'rinishi uchun) */}
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-[0.03]" />
+          {/* Subtle Noise Texture - Dizaynni "qimmatroq" ko'rsatish uchun */}
+          <div className="absolute inset-0 opacity-[0.015] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
         </div>
 
-        {/* Kontent */}
+        {/* Kontent: Sectionlar orasidagi masofani global boshqarish */}
         <div className="relative z-0 flex flex-col min-h-screen">
           {children}
         </div>
